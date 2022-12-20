@@ -17,6 +17,7 @@ flatpickr(inputTarget, options);
 
 const date = Date.now();
 const btnStart = document.querySelector('button[data-start]');
+  btnStart.setAttribute('disabled', true);
 const timeDays = document.querySelector('[data-days]');
 const timeHours = document.querySelector('[data-hours]');
 const timeMinute = document.querySelector('[data-minutes]');
@@ -29,7 +30,6 @@ class Timer {
   }
 
   start() {
-    btnStart.setAttribute('disabled', true);
     if (this.selectedDates[0] - date < 0) {
       clearTimeout(this.timeId);
       this.timeId = setTimeout(() => {
@@ -41,6 +41,7 @@ class Timer {
   }
   someFun() {
     inputTarget.setAttribute('disabled', true);
+      btnStart.setAttribute('disabled', true);
     this.timeId = setInterval(() => {
       const date1 = Date.now();
       const betweenTime = this.selectedDates[0] - date1;
